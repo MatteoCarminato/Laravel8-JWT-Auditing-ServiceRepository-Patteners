@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\CompanieController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,15 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 /* Route Authentication */
 Route::post('/login', [AuthenticationController::class, 'login'])->name('post.login');
 Route::post('/register', [AuthenticationController::class, 'register'])->name('post.register');
 
 Route::group(['middleware' => 'private'], function () {
+    /* Route Authentication */
     Route::get('/profile', [AuthenticationController::class, 'profile'])->name('get.profile');
+
+    Route::apiResources([
+        'companies' => CompanieController::class,
+        'users' => CompanieController::class,
+    ]);
+
 
 });
