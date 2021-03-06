@@ -53,7 +53,7 @@ class Controller extends BaseController
     public function store(Request $request)
     {
         try{
-            return $this->successResponse(new AbstractResource($this->services->store($request->all())));
+            return $this->successResponse(new AbstractResource($this->services->store($request->validated())));
         }catch(Exception  $e){
             return $this->errorResponse($e->getMessage(),  $e->getCode());
         }
@@ -84,7 +84,7 @@ class Controller extends BaseController
     public function update(Request $request, $id)
     {
         try{
-            return $this->successResponse( new AbstractResource($this->services->update($request->all(), $id)));
+            return $this->successResponse( new AbstractResource($this->services->update($request->validated(), $id)));
         }catch(Exception  $e){
             return $this->errorResponse($e->getMessage(),  $e->getCode());
         }

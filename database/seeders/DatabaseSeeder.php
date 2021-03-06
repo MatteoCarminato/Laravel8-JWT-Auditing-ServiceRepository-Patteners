@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             ->count(1)
             ->create([
                 'name' => 'Administrador',
-                'email' => 'teste@cloudcrm.tech',
+                'email' => 'admin@admin.com',
                 'password' => Hash::make('1234'),
             ]);
 
