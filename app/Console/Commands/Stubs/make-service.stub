@@ -1,18 +1,17 @@
 <?php
 
-
 namespace App\Services;
 
-use App\Repositories\UserRepository;
+use App\Repositories\GenericRepository;
 use Illuminate\Database\Eloquent\Model;
 
-class UserService extends AbstractService
+class GenericService extends AbstractService
 {
     public $repository;
 
     public function __construct(Model $model)
     {
         parent::__construct($model);
-        $this->repository = new UserRepository($model);
+        $this->repository = new GenericRepository($model);
     }
 }
