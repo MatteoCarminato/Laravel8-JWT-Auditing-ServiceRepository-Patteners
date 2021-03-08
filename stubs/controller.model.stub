@@ -3,6 +3,8 @@
 namespace {{ namespace }};
 
 use {{ rootNamespace }}Http\Controllers\Controller;
+use App\Services\AbstractService;
+
 
 class {{ class }} extends Controller
 {
@@ -11,4 +13,3 @@ class {{ class }} extends Controller
            $this->services = new AbstractService($model);
        }
 }
-''
