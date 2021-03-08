@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
-use App\Http\Controllers\CompanieController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,8 +26,8 @@ Route::group(['middleware' => 'private'], function () {
     Route::get('/profile', [AuthenticationController::class, 'profile'])->name('get.profile');
 
     Route::apiResources([
-        'companies' => CompanieController::class,
-        'users' => CompanieController::class,
+        'companies' => CompanyController::class,
+        'users' => UserController::class,
     ]);
 
 
