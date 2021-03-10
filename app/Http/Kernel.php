@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -41,6 +42,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             \App\Http\Middleware\ForceJsonResponse::class,
+            \App\Http\Middleware\LogRoute::class,
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -65,5 +67,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'private' => \App\Http\Middleware\JwtMiddleware::class,
         'json' => \App\Http\Middleware\ForceJsonResponse::class,
+        'log.route' => \App\Http\Middleware\LogRoute::class
     ];
 }
