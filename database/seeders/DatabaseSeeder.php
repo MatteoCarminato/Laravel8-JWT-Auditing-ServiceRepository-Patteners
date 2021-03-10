@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             ->create([
                 'name' => 'Administrador',
                 'email' => 'admin@admin.com',
-                'password' => Hash::make('1234'),
+                'password' => md5('1234'),
             ]);
 
         $this->call(CompanySeeder::class);

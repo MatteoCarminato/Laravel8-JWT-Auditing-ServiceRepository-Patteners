@@ -2,16 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use OwenIt\Auditing\Contracts\Auditable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model implements Auditable
+class User extends Authenticatable
 {
     use HasFactory, SoftDeletes;
-    use \OwenIt\Auditing\Auditable;
 
     /**
      * The attributes that are mass assignable.
